@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as weatherApi from "../../utilities/weather-api";
 import WeatherCard from "../../components/WeatherCard/WeatherCard";
+import JournalForm from "../../components/JournalForm/JournalForm";
 
 export default function SearchPage() {
   const [formData, setFormData] = useState("");
@@ -53,7 +54,10 @@ export default function SearchPage() {
       ))}
 
       {selectedAddress && selectedWeather ? (
-        <WeatherCard weather={selectedWeather} address={selectedAddress} />
+        <>
+          <WeatherCard weather={selectedWeather} address={selectedAddress} />
+          <JournalForm />
+        </>
       ) : (
         <></>
       )}
