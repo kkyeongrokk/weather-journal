@@ -3,8 +3,9 @@ const Schema = mongoose.Schema;
 
 const journalSchema = new Schema(
   {
-    name: { type: String, required: true },
+    weather: { type: Schema.Types.ObjectId, ref: "Weather" },
     journal: { type: String, required: true },
+    user: { type: Schema.Types.ObjectId, ref: "User" },
   },
   {
     timestamps: true,

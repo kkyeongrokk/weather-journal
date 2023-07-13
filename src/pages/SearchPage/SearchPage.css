@@ -1,0 +1,10 @@
+.SearchPageEls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.SearchCity {
+  margin-top: 5vmin;
+}
