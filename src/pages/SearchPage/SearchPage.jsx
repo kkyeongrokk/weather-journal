@@ -51,6 +51,7 @@ export default function SearchPage() {
           </button>
         </div>
       ))}
+
       {selectedAddress && selectedWeather ? (
         <WeatherCard weather={selectedWeather} address={selectedAddress} />
       ) : (
