@@ -8,20 +8,28 @@ import HomePage from "../HomePage/HomePage";
 import SearchPage from "../SearchPage/SearchPage";
 
 export default function App() {
-  const [user, setUser] = useState(getUser());
-  return (
-    <main className="App">
-      {user ? (
-        <>
-          <NavBar user={user} setUser={setUser} />
-          <Routes>
-            <Route path="/*" element={<HomePage />} />
-            <Route path="/search" element={<SearchPage />} />
-          </Routes>
-        </>
-      ) : (
-        <AuthPage setUser={setUser} />
-      )}
-    </main>
-  );
+    const [user, setUser] = useState(getUser());
+    const [allUserJournals, setAllUserJournals] = useState([]);
+    return (
+        <main className="App">
+            {user ? (
+                <>
+                    <NavBar user={user} setUser={setUser} />
+                    <Routes>
+                        <Route path="/*" element={<HomePage />} />
+                        <Route
+                            path="/search"
+                            element={
+                                <SearchPage
+                                    setAllUserJournals={setAllUserJournals}
+                                />
+                            }
+                        />
+                    </Routes>
+                </>
+            ) : (
+                <AuthPage setUser={setUser} />
+            )}
+        </main>
+    );
 }

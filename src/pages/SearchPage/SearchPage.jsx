@@ -1,9 +1,10 @@
 import { useState } from "react";
 import * as weatherApi from "../../utilities/weather-api";
+import * as journalsApi from "../../utilities/journals-api";
 import WeatherCard from "../../components/WeatherCard/WeatherCard";
 import "./SearchPage.css";
 
-export default function SearchPage() {
+export default function SearchPage({ setAllUserJournals }) {
     const [formData, setFormData] = useState("");
     const [selectedAddress, setSelectedAddress] = useState(null);
     const [addresses, setAddresses] = useState([]);
@@ -42,9 +43,14 @@ export default function SearchPage() {
                 minTemp: selectedWeather.main.temp_min,
                 humidity: selectedWeather.main.humidity,
             },
-            journal: {},
+            journal: {
+                journal: journal,
+            },
         };
-        console.log(body.weather);
+
+        const allUserJournals = await journalsApi.createJournal(body);
+        console.log(allUserJournals);
+        setAllUserJournals(allUserJournals);
     }
 
     return (
@@ -89,6 +95,8 @@ export default function SearchPage() {
                             value={journal}
                             type="text"
                             placeholder="Write your journal"
+                            required
+                            minLength={6}
                         />
                         <button type="submit">Post</button>
                     </form>
