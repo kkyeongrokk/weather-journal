@@ -49,7 +49,6 @@ export default function SearchPage({ setAllUserJournals }) {
         };
 
         const allUserJournals = await journalsApi.createJournal(body);
-        console.log(allUserJournals);
         setAllUserJournals(allUserJournals);
     }
 

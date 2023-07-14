@@ -3,6 +3,7 @@ const Weather = require("../../models/weather");
 
 module.exports = {
     createJournal,
+    getUsersJournals,
 };
 
 async function createJournal(req, res) {
@@ -36,4 +37,12 @@ async function createJournal(req, res) {
         console.log(err);
         res.status(500).json(err);
     }
+}
+
+async function getUsersJournals(req, res) {
+    const allUserJournals = await Journal.find({
+        user: req.user._id,
+    }).populate("weather");
+
+    res.json(allUserJournals);
 }
