@@ -6,9 +6,9 @@ export default function JournalPage({ allUserJournals, user }) {
     ));
 
     return (
-        <div>
+        <main>
             <h1>{user.name}'s Journal</h1>
             <div>{journals}</div>
-        </div>
+        </main>
     );
 }

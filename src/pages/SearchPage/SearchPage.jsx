@@ -53,7 +53,7 @@ export default function SearchPage({ setAllUserJournals }) {
     }
 
     return (
-        <div className="SearchPage">
+        <main className="SearchPage">
             <form
                 className="SearchCity SearchPageEls"
                 onSubmit={handleSubmitCity}
@@ -103,6 +103,6 @@ export default function SearchPage({ setAllUserJournals }) {
             ) : (
                 <></>
             )}
-        </div>
+        </main>
     );
 }
