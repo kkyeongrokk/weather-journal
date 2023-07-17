@@ -9,4 +9,8 @@ router.post("/", ensureLoggedIn, journalsCtrl.createJournal);
 
 router.get("/", ensureLoggedIn, journalsCtrl.getUsersJournals);
 
+router.delete("/:id/delete", ensureLoggedIn, journalsCtrl.deleteJournal);
+
+router.put("/:id", ensureLoggedIn, journalsCtrl.updateJournal);
+
 module.exports = router;

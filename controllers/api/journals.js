@@ -4,6 +4,8 @@ const Weather = require("../../models/weather");
 module.exports = {
     createJournal,
     getUsersJournals,
+    deleteJournal,
+    updateJournal,
 };
 
 async function createJournal(req, res) {
@@ -45,4 +47,36 @@ async function getUsersJournals(req, res) {
     }).populate("weather");
 
     res.json(allUserJournals);
+}
+
+async function deleteJournal(req, res) {
+    try {
+        const journalId = req.params.id;
+
+        await Journal.findOneAndDelete({ _id: journalId });
+        const usersJournals = await Journal.find({
+            user: req.user._id,
+        }).populate("weather");
+
+        res.status(200).json(usersJournals);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+}
+
+async function updateJournal(req, res) {
+    try {
+        const journalId = req.params.id;
+        await Journal.findOneAndUpdate({ _id: journalId }, req.body, {
+            new: true,
+        });
+        const usersJournals = await Journal.find({
+            user: req.user._id,
+        }).populate("weather");
+        res.status(200).json(usersJournals);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
 }

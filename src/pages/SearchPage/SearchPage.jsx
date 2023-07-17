@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as weatherApi from "../../utilities/weather-api";
 import * as journalsApi from "../../utilities/journals-api";
 import WeatherCard from "../../components/WeatherCard/WeatherCard";
@@ -10,6 +11,7 @@ export default function SearchPage({ setAllUserJournals }) {
     const [addresses, setAddresses] = useState([]);
     const [selectedWeather, setSelectedWeather] = useState(null);
     const [journal, setJournal] = useState("");
+    const navigate = useNavigate();
 
     async function handleSubmitCity(evt) {
         evt.preventDefault();
@@ -50,6 +52,7 @@ export default function SearchPage({ setAllUserJournals }) {
 
         const allUserJournals = await journalsApi.createJournal(body);
         setAllUserJournals(allUserJournals);
+        navigate("/journal");
     }
 
     return (

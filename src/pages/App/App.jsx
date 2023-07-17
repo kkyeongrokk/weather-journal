@@ -43,6 +43,7 @@ export default function App() {
                     element={
                         <JournalPage
                             allUserJournals={allUserJournals}
+                            setAllUserJournals={setAllUserJournals}
                             user={user}
                         />
                     }
