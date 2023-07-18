@@ -1,10 +1,10 @@
-import './Logo.css';
+import "./Logo.css";
 
 export default function Logo() {
-  return (
-    <div className="Logo">
-      <div>SEI</div>
-      <div>CAFE</div>
-    </div>
-  );
+    return (
+        <div className="Logo">
+            <div>Weather</div>
+            <div>Journal</div>
+        </div>
+    );
 }

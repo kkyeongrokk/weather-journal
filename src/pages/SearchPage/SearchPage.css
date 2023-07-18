@@ -1,10 +1,25 @@
+.SearchPage {
+    display: flex;
+    justify-content: center;
+}
+
 .SearchPageEls {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .SearchCity {
-  margin-top: 5vmin;
+    margin-top: 5vmin;
+}
+
+.JournalForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.JournalForm > button {
+    margin-top: 0;
 }

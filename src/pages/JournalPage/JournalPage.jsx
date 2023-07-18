@@ -1,5 +1,6 @@
 import JournalCard from "../../components/JournalCard/JournalCard";
 import * as journalsAPI from "../../utilities/journals-api";
+import "./JournalPage.css";
 
 export default function JournalPage({
     allUserJournals,
@@ -17,7 +18,7 @@ export default function JournalPage({
     return (
         <main>
             <h1>{user.name}'s Journal</h1>
-            {journals}
+            <div className="JournalPage">{journals}</div>
         </main>
     );
 }

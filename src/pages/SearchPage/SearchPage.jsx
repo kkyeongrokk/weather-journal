@@ -61,14 +61,17 @@ export default function SearchPage({ setAllUserJournals }) {
                 className="SearchCity SearchPageEls"
                 onSubmit={handleSubmitCity}
             >
-                <input
-                    type="text"
-                    onChange={(evt) => {
-                        setFormData(evt.target.value);
-                    }}
-                    placeholder="Address"
-                />
-                <button type="submit">Search</button>
+                <label>Enter Address: </label>
+                <div>
+                    <input
+                        type="text"
+                        onChange={(evt) => {
+                            setFormData(evt.target.value);
+                        }}
+                        placeholder="Address"
+                    />
+                    <button type="submit">Search</button>
+                </div>
             </form>
             {addresses.map((a) => (
                 <div className="SearchPageEls" key={a.place_id}>
@@ -90,12 +93,13 @@ export default function SearchPage({ setAllUserJournals }) {
                         address={selectedAddress}
                     />
                     <form className="JournalForm" onSubmit={handleSubmitPost}>
-                        <input
+                        <textarea
                             onChange={(evt) => {
                                 setJournal(evt.target.value);
                             }}
+                            rows="4"
+                            cols="50"
                             value={journal}
-                            type="text"
                             placeholder="Write your journal"
                             required
                             minLength={6}
