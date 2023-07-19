@@ -14,6 +14,7 @@
 *:before,
 *:after {
     box-sizing: border-box;
+    font-family: "Merriweather", serif;
 }
 
 body {

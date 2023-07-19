@@ -30,7 +30,9 @@ export default function JournalCard({ journal, setAllUserJournals }) {
 
     return (
         <div className="JournalCard">
-            <h2>{journal.weather.location}</h2>
+            <h2>
+                <strong>{journal.weather.location}</strong>
+            </h2>
             {isEdit ? (
                 <form onSubmit={handleSubmitPost}>
                     <input
@@ -46,13 +48,13 @@ export default function JournalCard({ journal, setAllUserJournals }) {
                     <button type="submit">Update</button>
                 </form>
             ) : (
-                <h5>{journal.journal}</h5>
+                <h4>{journal.journal}</h4>
             )}
             <img
                 src={`http://openweathermap.org/img/wn/${journal.weather.icon}@2x.png`}
             />
-            <button onClick={() => setDropdown(!dropdown)}>Detail</button>
             {dropdown ? <WeatherDetail journal={journal} /> : <></>}
+            <button onClick={() => setDropdown(!dropdown)}>Detail</button>
             <button onClick={() => handleDeleteJournal(journal._id)}>
                 Delete
             </button>
