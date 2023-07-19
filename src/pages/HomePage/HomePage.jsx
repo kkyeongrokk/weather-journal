@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./HomePage.css";
 import * as weatherAPI from "../../utilities/weather-api";
 import WeatherCard from "../../components/WeatherCard/WeatherCard";
-import Weather from "../../../models/weather";
 
 export default function HomePage() {
     // const [curLocWeather, setCurLocWeather] = useState(null);
