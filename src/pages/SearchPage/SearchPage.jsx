@@ -17,7 +17,6 @@ export default function SearchPage({ setAllUserJournals }) {
         evt.preventDefault();
         const addressData = await weatherApi.searchAddress(formData);
         setAddresses(addressData.results);
-        console.log(addresses);
     }
 
     async function getWeatherData(address) {
@@ -30,6 +29,7 @@ export default function SearchPage({ setAllUserJournals }) {
         // wipe out addresses
         setAddresses([]);
         setSelectedWeather(await weatherApi.getWeather(coordinates));
+        console.log(await selectedWeather);
     }
 
     async function handleSubmitPost(evt) {
@@ -39,16 +39,19 @@ export default function SearchPage({ setAllUserJournals }) {
                 location: selectedAddress.formatted_address,
                 lat: selectedAddress.geometry.location.lat,
                 lon: selectedAddress.geometry.location.lng,
-                weatherDescription: selectedWeather.weather[0].main,
+                weatherDescription: selectedWeather.weather[0].description,
                 avgTemp: selectedWeather.main.temp,
                 maxTemp: selectedWeather.main.temp_max,
                 minTemp: selectedWeather.main.temp_min,
                 humidity: selectedWeather.main.humidity,
+                icon: selectedWeather.weather[0].icon,
             },
             journal: {
                 journal: journal,
             },
         };
+
+        console.log(body.weather.icon);
 
         const allUserJournals = await journalsApi.createJournal(body);
         setAllUserJournals(allUserJournals);

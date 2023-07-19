@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const weatherSchema = new Schema(
     {
+        icon: { type: String },
         location: { type: String },
         lat: { type: Number },
         lon: { type: Number },

@@ -7,6 +7,7 @@
     --orange: #f67f00;
     --text-light: #968c84;
     --text-dark: #615954;
+    --skyblue: #87ceeb;
 }
 
 *,
@@ -22,7 +23,7 @@ body {
         "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: var(--tan-4);
+    background-color: var(--skyblue);
     height: 100vh;
 }
 
@@ -131,8 +132,8 @@ button,
 a.button {
     margin: 1vmin;
     padding: 1vmin;
-    color: var(--white);
-    background-color: var(--orange);
+    color: var(--skyblue);
+    background-color: var(--white);
     font-size: 2vmin;
     font-weight: bold;
     text-decoration: none;

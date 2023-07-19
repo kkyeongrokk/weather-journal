@@ -1,9 +1,13 @@
 import { useState } from "react";
 import * as journalsAPI from "../../utilities/journals-api";
+import WeatherDetail from "../WeatherDetail/WeatherDetail";
+
+import "./JournalCard.css";
 
 export default function JournalCard({ journal, setAllUserJournals }) {
     const [isEdit, setIsEdit] = useState(false);
     const [updateJournal, setUpdateJournal] = useState(journal.journal);
+    const [dropdown, setDropdown] = useState(false);
 
     async function handleDeleteJournal(journalId) {
         const usersJournals = await journalsAPI.deleteJournal(journalId);
@@ -25,10 +29,10 @@ export default function JournalCard({ journal, setAllUserJournals }) {
     }
 
     return (
-        <div>
+        <div className="JournalCard">
             <h2>{journal.weather.location}</h2>
             {isEdit ? (
-                <form className="JournalForm" onSubmit={handleSubmitPost}>
+                <form onSubmit={handleSubmitPost}>
                     <input
                         onChange={(evt) => {
                             setUpdateJournal(evt.target.value);
@@ -44,13 +48,11 @@ export default function JournalCard({ journal, setAllUserJournals }) {
             ) : (
                 <h5>{journal.journal}</h5>
             )}
-            <ul>
-                <li>Date: {journal.weather.date}</li>
-                <li>Avg Temp: {journal.weather.avgTemp}</li>
-                <li>Max Temp: {journal.weather.maxTemp}</li>
-                <li>Min Temp: {journal.weather.minTemp}</li>
-                <li>Humidity: {journal.weather.humidity}</li>
-            </ul>
+            <img
+                src={`http://openweathermap.org/img/wn/${journal.weather.icon}@2x.png`}
+            />
+            <button onClick={() => setDropdown(!dropdown)}>Detail</button>
+            {dropdown ? <WeatherDetail journal={journal} /> : <></>}
             <button onClick={() => handleDeleteJournal(journal._id)}>
                 Delete
             </button>
