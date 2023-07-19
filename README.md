@@ -8,7 +8,7 @@
 
 # My Weather Journal
 
-### [My Weather Journal](https://my-tennis-tournament.herokuapp.com/)
+### [My Weather Journal](https://my-weather-journal-d8f61c68cad0.herokuapp.com/)
 
 ##### Kyeongrok Kim
 
@@ -57,14 +57,6 @@ My Weather Journal is a web application where you can post journals and save it 
 </details>
 
 <details>
-  <summary> How to Register for tournament </summary>
-    1. Log in with a Google account.<br>
-    2. Register your information to the web app.<br>
-    3. Click tournaments and choose the tournament you want to register.<br>
-    4. In tournament details page, click register here button.
-</details>
-
-<details>
   <summary> Trello Board </summary>
   <a href="https://trello.com/b/meCtfzNV/project4"
     > https://trello.com/b/meCtfzNV/project4 </a
@@ -73,8 +65,8 @@ My Weather Journal is a web application where you can post journals and save it 
 
 <details>
   <summary> Deployed Link (Heroku) </summary>
-  <a href="https://my-tennis-tournament.herokuapp.com/"
-    > https://my-tennis-tournament.herokuapp.com/ </a
+  <a href="https://my-weather-journal-d8f61c68cad0.herokuapp.com/"
+    > https://my-weather-journal-d8f61c68cad0.herokuapp.com/ </a
   >
 </details>
 

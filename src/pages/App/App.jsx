@@ -49,7 +49,9 @@ export default function App() {
                     }
                 />
             </Routes>
-            <footer>&copy;</footer>
+            <footer>
+                <span>&copy; 2023 Kyeongrok Kim</span>
+            </footer>
         </>
     );
 }
