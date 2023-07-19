@@ -29,8 +29,8 @@ export default function HomePage() {
     //     setAddresses(addressData.results);
 
     //     setCurLocWeather(await weatherAPI.getWeather(coordinates));
-        
-    }
+
+    // }
 
     return (
         <main>
